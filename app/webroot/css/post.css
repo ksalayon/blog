@@ -1,0 +1,147 @@
+
+#body
+{
+	background-color:#6C8DD5;
+	border: 10px;                           
+}
+#content h1
+{
+	padding: 25px;
+}
+.comment-row div
+{
+	padding: 20px;
+	border: 2px, solid;
+	background-color:#ffd;
+	height:150px;
+	color:black;
+	
+}
+#content
+{
+	background: #6C8DD5;
+	clear: both;
+	color: black;
+	padding: 10px 20px 40px 20px;
+	overflow: auto;
+	border-bottom-style: solid;
+	border-bottom-color: transparent;
+}
+.blog-title
+{
+	float: left;
+	text-decoration: underline;
+	font-family: Loved by the King;
+	font-size: 35px;
+	text-align: center;
+	background: #6C8DD5;
+	color: black;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.blog-content
+{
+	border: solid;
+	padding: 15px;
+	margin: 15px;
+
+}
+ul li
+{
+	padding: 30px
+}
+#sub-footer
+{
+	font-family: Loved by the King;
+	font-size: 35px;
+	text-align: center;
+	background: #6C8DD5;
+	color: black;
+}
+.letterpress
+{
+	text-shadow: 0px 1px 1px #4d4d4d;
+        color: #222;
+        font-size: 80px;
+        font-family: RockSalt;
+}
+/*MORPH*/
+.morph {
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+ 
+.morph:hover {
+  border-radius: 50%;
+  -webkit-transform: rotate(360deg);
+     -moz-transform: rotate(360deg);
+       -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+#header
+{
+
+	border-bottom-style: solid;
+	border-bottom-color: #06276F;
+	color: black;
+	background-color:#6C8DD5;
+	font-family: Loved by the King;
+	font-size: 70px;
+	text-align: -webkit-center;
+}
+#footer
+{
+	text-align: center;
+	background-color:#6C8DD5;
+	color: black;
+	font-family: Loved by the King;
+	font-size: 35px;
+	border-top-style: solid;
+	border-top-color: red;
+}
+#footer a
+{
+	color: black;
+	text-align: center;
+	font-family: cursive;
+	font-size: 18px;
+	list-style-type:none;
+	display:inline;
+	margin:0;
+	padding:0;
+}
+#blog
+{
+	
+	background: #6C8DD5;
+	clear: both;
+	color: black;
+	padding: 10px 20px 40px 20px;
+	overflow: auto;
+}
+.home-page-content
+{
+	background-color: #6C8DD5;
+	margin-right: 10px;
+	float: left;
+	
+}
+.home-page-content p
+{
+	background-color: #6C8DD5;
+	font-family: Loved by the King;
+	font-size: 25px;
+	float: none;
+}
+.home-page-content img
+{
+	float: none;
+	margin: 20px auto;
+	width: 150px;
+	display: block;
+}
+
