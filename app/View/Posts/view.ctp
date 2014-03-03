@@ -4,7 +4,7 @@ $cats = $this->requestAction('/categories/get_categories_and_latest_post');
 ?>
 	
 <div class="grid-100 post-section">
-	
+
 
 <div class="grid-100">
 	<div class="post-title grid-100">

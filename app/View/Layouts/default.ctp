@@ -52,16 +52,20 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+
 </head>
 <body>
 	<div id="container" class="grid-container">
-		<div id="header" class="grid-50	push-25 grid-parent">
-				- Jack Macleod -
-		<div id="navigation" class="grid-50	push-25 grid-parent">
-			<div class="home grid-100">
-					<a href="/home/index">Home</a>	
+		
+		<div id="header" class="grid-100 grid-parent">
+			
+				<a href="/">- Jack Macleod -</a>
+		
+				<div class="back-button grid-100">
+					<button onclick="history.go(-1);">Go back a page</button>
 				</div>
 			</div>
+		</div>
 		
 		</div>
 		<div id="content" class="grid-100 grid-parent">

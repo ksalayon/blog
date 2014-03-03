@@ -30,7 +30,7 @@
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/', array('controller' => 'home', 'action' => 'index'));
+	Router::connect('/', array('controller' => 'home', 'action' => 'display'));
  
  	Router::parseExtensions('json');
 /**

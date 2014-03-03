@@ -35,7 +35,13 @@ class CategoriesController extends AppController {
 	public $helpers = array('Html', 'Form');
 	
 	public $components = array('Paginator');
+	
+	public function isAuthorized($user) {
 
+	
+	    return parent::isAuthorized($user);
+	}
+	
 	public function index() {
 		 
 		 $paginationConfig = array(

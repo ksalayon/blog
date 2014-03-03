@@ -1,13 +1,14 @@
 <?php
 $cats = $this->requestAction('/categories/get_categories_and_latest_post');
 ?>
-	
-<div id="blog" class="grid-100 ">
-	<div class= "blog-top grid-100">Blog after blog</div>
-	
 	<div class = "grid-100 contact-me">
 				<li><a href="/home/contact">Contact me, Man.</a></li>
 		</div>
+		
+	<div id="blog" class="grid-100 ">
+	<div class= "blog-top grid-100 push-30">Blog after blog</div>
+	
+	
 
 	
 	

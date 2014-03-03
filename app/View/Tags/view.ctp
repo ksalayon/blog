@@ -24,7 +24,6 @@
 				<div class="tag-post-actions grid-100">
 					<div>
 						<?php echo $this->Html->link(__('View'), array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>
-						<?php echo $this->Html->link(__('Edit'), array('controller' => 'posts', 'action' => 'edit', $post['Post']['id'])); ?>
 					</div>
 					
 				</div>

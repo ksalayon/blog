@@ -34,9 +34,15 @@ class HomeController extends AppController {
 
  public $helpers = array('Blog', 'Html', 'Form', 'Session');
 
-	public function index() {
-         $this->layout = 'home';
+	
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->logdebug('Home beofre filter');
+        $this->Auth->allow();
     }
+
+	
+
 
 /**
  * This controller does not use a model
@@ -53,8 +59,13 @@ class HomeController extends AppController {
  * @throws NotFoundException When the view file could not be found
  *	or MissingViewException in debug mode.
  */
+ 
+ 	
+	
 	public function display() {
-		$path = func_get_args();
+		$this->layout = 'home';
+		
+		/**$path = func_get_args();
 
 		$count = count($path);
 		if (!$count) {
@@ -80,11 +91,12 @@ class HomeController extends AppController {
 				throw $e;
 			}
 			throw new NotFoundException();
-		}
+		}**/
 	}
 	
+
+		
 	public function contact()
-	
 	{
 		
 		
@@ -113,8 +125,14 @@ class HomeController extends AppController {
         }
 		 
 	}
+
 	public function portfolio()
 	{
 		
+	}
+	
+	function __test()
+	{
+		echo 'Invoke private function';
 	}
 }
