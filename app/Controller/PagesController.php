@@ -36,8 +36,15 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
-
+    
+    public $name = 'Pages';
+    
+    public function beforeFilter() {
+        $this->logdebug('Pagesontroller beforeFilter');
+        parent::beforeFilter();
+        $this->Auth->allow('home' , 'contact', 'portfolio');
+    }
+    
 /**
  * Displays a view
  *
@@ -46,33 +53,50 @@ class PagesController extends AppController {
  * @throws NotFoundException When the view file could not be found
  *	or MissingViewException in debug mode.
  */
-	public function display() {
-		$path = func_get_args();
+	public function home()
+    {
+        $this->layout = 'home';
+    }
+    
+    
+    
+    public function contact()
+    {
+        
+        
+         //post, get, put, delete
+         if ($this->request->is('post')) {
+            $this->logdebug($this->request->data);
+            $this->Contact->create();
+            if ($this->Contact->save($this->request->data)) {
+                $this->Session->setFlash(__('Your contact has been saved.'));
+                
+                /** **/
+                //Email code goes here
+                $Email = new CakeEmail();
+                $Email->config('gmail');
+                $Email->emailFormat('html');
+                $Email->to('jackmacleod78@gmail.com'); //replace with your gmail account                
+                $Email->replyTo($this->request->data['Contact']['email']); //replace with your gmail account                
+                $Email->from($this->request->data['Contact']['email']); //replace with your gmail account               
+                $Email->subject($this->request->data['Contact']['subject']);            
+                $Email->send($this->request->data['Contact']['message']);
+                /** **/
+                
+                //return $this->redirect(array('action' => 'index'));
+            }
+            $this->Session->setFlash(__('Unable to save your contact.'));
+        }
+         
+    }
 
-		$count = count($path);
-		if (!$count) {
-			return $this->redirect('/');
-		}
-		$page = $subpage = $title_for_layout = null;
-
-		if (!empty($path[0])) {
-			$page = $path[0];
-		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		if (!empty($path[$count - 1])) {
-			$title_for_layout = Inflector::humanize($path[$count - 1]);
-		}
-		$this->set(compact('page', 'subpage', 'title_for_layout'));
-
-		try {
-			$this->render(implode('/', $path));
-		} catch (MissingViewException $e) {
-			if (Configure::read('debug')) {
-				throw $e;
-			}
-			throw new NotFoundException();
-		}
-	}
+    public function portfolio()
+    {
+        
+    }
+    
+    function __test()
+    {
+        echo 'Invoke private function';
+    }
 }

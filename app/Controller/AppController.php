@@ -33,53 +33,45 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
+    public $helpers = array('Blog', 'Html', 'Form', 'Session');
+     
 	var $components = array('RequestHandler', 'Session',
         'Auth' => array(
+            'loginAction' => array(
+                'controller' => 'users',
+                'action' => 'login'
+            ),
             'loginRedirect' => array(
                 'controller' => 'posts',
                 'action' => 'index'
             ),
             'logoutRedirect' => array(
                 'controller' => 'users',
-                'action' => 'login',
-                'home'
+                'action' => 'login'
             ),
-             'authorize' => array('Controller')
+            'authorize' => array('Controller')
         )
     );
 	
 	public function beforeFilter() {
-		$this->logdebug('App before filter');
-        $this->Auth->allow('display');
+	    
+        $this->Auth->allow('home');
     }
 
 	public function isAuthorized($user) {
-		$this->logdebug('App is authorized');
-	    // Admin can access every action
-	    if (isset($user['role']) && $user['role'] === 'admin') {
-	        return true;
-	    }
-	
-	    // Default deny
-	    return false;
-	}
-		public function isNotAuthorized($user) {
-		$this->logdebug('App is not authorized');
-	    // Admin can access every action
-	    if (isset($user['role']) && $user['role'] === 'author') {
-	        return true;
-	    }
-		   return false;
-	}
-		
+	    
+        $this->logdebug($user, 'Is Authorized User at AppController');
+        // Admin can access every action
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
     
+        // Default deny
+        return false;
+    }
 
 
-	
-	
-	
-	 	
-	function logdebug($data, $message = null, $file = 'CRMLOG')
+	public function logdebug($data, $message = null, $file = 'CRMLOG')
     {
         if(is_string($data) || is_numeric($data))
         {

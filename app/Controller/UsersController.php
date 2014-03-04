@@ -5,6 +5,7 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 
     public function beforeFilter() {
+        $this->logdebug('UserController beforeFilter');
         parent::beforeFilter();
         $this->Auth->allow('add', 'logout', 'login');
     }
@@ -74,25 +75,10 @@ class UsersController extends AppController {
 	public function login() {
     	if ($this->request->is('post')) {
     		
-			//handles successful login
-        	if ($this->Auth->login()) {
-        		
-
-				$user = $this->Auth->user();
-				
-				if($user['role'] == 'admin')
-				{
-					return $this->redirect('/posts/index');
-				}
-				else
-				{
-					if ($user['role'] == 'author')
-					{
-						return $this->redirect('/home/index');
-					}
-				}
-        		
-			}
+			if ($this->Auth->login()) {
+                return $this->redirect($this->Auth->redirect());
+            }
+            $this->Session->setFlash(__('Invalid username or password, try again'));
 
 		 }
 	}

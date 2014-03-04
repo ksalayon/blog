@@ -36,9 +36,12 @@ class CategoriesController extends AppController {
 	
 	public $components = array('Paginator');
 	
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('get_categories_and_latest_post');
+    }
+    
 	public function isAuthorized($user) {
-
-	
 	    return parent::isAuthorized($user);
 	}
 	
@@ -155,7 +158,6 @@ class CategoriesController extends AppController {
 		$this->Category->recursive = 0;
 		$result = $this->Category->find('all');
 		
-		$this->logdebug($result, 'latest post result');
 		return $result;
 	}
 

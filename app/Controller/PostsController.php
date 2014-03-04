@@ -34,6 +34,11 @@ class PostsController extends AppController {
 
  public $helpers = array('Html', 'Form');
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('view');
+    }
+    
 	public function index() {
          $this->set('posts', $this->Post->find('all'));
     }
@@ -122,7 +127,7 @@ class PostsController extends AppController {
  * @throws NotFoundException When the view file could not be found
  *	or MissingViewException in debug mode.
  */
-	public function display() {
+	/**public function display() {
 		$path = func_get_args();
 
 		$count = count($path);
@@ -166,38 +171,32 @@ class PostsController extends AppController {
 	    }
 	
 	    return parent::isNotAuthorized($user);
-	}
+	}**/
 		
 	public function isAuthorized($user) {
-	    // All registered users can add posts
-	    if ($this->action === 'add') {
-	        return true;
-	    }
-	
-	    // The owner of a post can edit and delete it
-	    if (in_array($this->action, array('edit', 'delete'))) {
-	        $postId = $this->request->params['pass'][0];
-	        if ($this->Post->isOwnedBy($postId, $user['id'])) {
-	            return true;
-	        }
-	    }
-	
-	    return parent::isAuthorized($user);
-	}
+        // All registered users can add posts
+        if ($this->action === 'add') {
+            return true;
+        }
+    
+        // The owner of a post can edit and delete it
+        if (in_array($this->action, array('edit', 'delete'))) {
+            $postId = $this->request->params['pass'][0];
+            if ($this->Post->isOwnedBy($postId, $user['id'])) {
+                return true;
+            }
+        }
+    
+        return parent::isAuthorized($user);
+    }
 	
     function add()
     {
-    	if ($this->request->is('post')) {
-        //Added this line
-        $this->request->data['Post']['user_id'] = $this->Auth->user('id');
-        if ($this->Post->save($this->request->data)) {
-            $this->Session->setFlash(__('Your post has been saved.'));
-            return $this->redirect(array('action' => 'index'));
-        }
-    }
 
 		if ($this->request->is('post')) {
 			
+            $this->request->data['Post']['user_id'] = $this->Auth->user('id');
+            
 			$filename = null;
 
 	        if (!empty($this->request->data['Post']['featured_image']['tmp_name'])

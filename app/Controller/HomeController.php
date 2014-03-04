@@ -19,7 +19,9 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-App::uses('CakeEmail', 'Network/Email', 'AppController', 'Controller');
+
+//App::uses('AppController', 'Controller', 'CakeEmail', 'Network/Email');
+App::uses('AppController', 'Controller', 'Contact');
 
 /**
  * Static content controller
@@ -32,16 +34,8 @@ App::uses('CakeEmail', 'Network/Email', 'AppController', 'Controller');
 class HomeController extends AppController {
 
 
- public $helpers = array('Blog', 'Html', 'Form', 'Session');
 
-	
-	public function beforeFilter() {
-		parent::beforeFilter();
-		$this->logdebug('Home beofre filter');
-        $this->Auth->allow();
-    }
 
-	
 
 
 /**
@@ -49,19 +43,23 @@ class HomeController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Contact');
+	//public $uses = array('Contact');
 
-/**
- * Displays a view
- *
- * @param mixed What page to display
- * @return void
- * @throws NotFoundException When the view file could not be found
- *	or MissingViewException in debug mode.
- */
- 
- 	
-	
+    public function beforeFilter() {
+        $this->logdebug('HomeController beforeFilter');
+        //parent::beforeFilter();
+        $this->Auth->allow('display', 'contact', 'portfolio');
+    }
+
+    /**
+    * Displays a view
+    *
+    * @param mixed What page to display
+    * @return void
+    * @throws NotFoundException When the view file could not be found
+    *  or MissingViewException in debug mode.
+    */
+     
 	public function display() {
 		$this->layout = 'home';
 		
