@@ -10,6 +10,14 @@
 	background-image: -o-linear-gradient(top, #a5b8da, #6C8DD5);
 	background-image: linear-gradient(to bottom, #a5b8da, #6C8DD5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a5b8da, endColorstr=#6C8DD5);
 }
+#blog-general-success
+{
+	   background-color:green;
+	   float: right;
+	   font-size: 25px;
+	   padding:15px;
+	   margin:15px;
+}
 .home a
 {
 	font-size: 25px;

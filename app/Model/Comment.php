@@ -16,16 +16,22 @@ class Comment extends AppModel {
  * @var array
  */
  
- 	public $validate = array(
-		'username' => array(
+
+public $validate = array(
+		'name' => array(
 			'rule' => 'notEmpty',
-			'message' => 'Please enter a username'
+			'required' => true
 		),
-		'body' => array(
-			'rule' => 'notEmpty'
-		)
-	);
- 	
+		'comment' => array(
+			'rule' => 'notEmpty',
+			'required' => true
+			
+		),
+		'emailAddress' => array(
+			'rule' => 'notEmpty',
+			'required' => true
+	)
+);
 	public $belongsTo = array(
 		'Post' => array(
 			'className' => 'Post',

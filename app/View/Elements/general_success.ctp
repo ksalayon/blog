@@ -1,0 +1,1 @@
+<div id="blog-general-success"><?php echo h($message); ?></div>

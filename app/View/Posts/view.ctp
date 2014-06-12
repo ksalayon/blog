@@ -28,9 +28,9 @@ $cats = $this->requestAction('/categories/get_categories_and_latest_post');
 	<h1>Comments Section</h1>
 	<?php foreach($post['Comment'] as $cKey => $cVal): ?>
 		<div class="grid-100 comment-row">
-			<div class="comment-username grid-100"><?php echo $cVal['username'] . ' ' ; ?></div>
+			<div class="comment-username grid-100"><?php echo $cVal['name'] . ' ' ; ?></div>
 			<div class="comment-created grid-100"><?php echo $cVal['created']; ?></div>
-			<div class="comment-body grid-90"><?php echo $cVal['body']; ?></div>
+			<div class="comment-body grid-90"><?php echo $cVal['comment']; ?></div>
 			
 		</div>
 	<?php endforeach; ?>
@@ -45,9 +45,11 @@ $cats = $this->requestAction('/categories/get_categories_and_latest_post');
 		<legend><label> Add a comment here </label></legend>
 	<?php
 	echo $this->Form->input('Comment.post_id', array('type' => 'hidden', 'value' => $post['Post']['id']));
-	echo $this->Form->input('Comment.username');
-	echo $this->Form->input('Comment.body', array('type' => 'textarea'));
-	echo $this->Form->end('Submit the comment', array('class' => 'Submit-comment'));
+	echo $this->Form->input('Comment.name');
+	echo $this->Form->input('Comment.emailAddress');
+	echo $this->Form->input('Comment.comment', array('type' => 'textarea'));
+	echo $this->Form->end('Submit the comment', array('class' => 'Submit-comment', 'onsubmit'=> 'return confirm("are you sure?");'));
+	
 
 //$post['Comment']
 ?>

@@ -21,7 +21,7 @@ $cats = $this->requestAction('/categories/get_categories_and_latest_post');
 					<div class="cat-title">
 						<h3 class="grid-100"><?php echo $cVal['Category']['title']; ?></h3>
 					</div>
-					<div class='blog-info '>
+					<div class='blog-info'>
 						<h5 class="post-title grid-100"><?php echo $cVal['Post'][0]['title']; ?></h5>
 						<?php 
 							

@@ -40,14 +40,20 @@ class Post extends Model {
 	public $actsAs = array('Containable');
 	
 	public $validate = array(
-		'title' => array(
-			'rule' => 'notEmpty'
+		'name' => array(
+			'rule' => 'notEmpty',
+			'required' => true
 		),
-		'body' => array(
-			'rule' => 'notEmpty'
+		'comment' => array(
+			'rule' => 'notEmpty',
+			'required' => true
 			
-			)
-	);
+		),
+		'emailAddress' => array(
+			'rule' => 'notEmpty',
+			'required' => true
+	)
+);
 	
 	public $hasAndBelongsToMany = array(
 		

@@ -38,7 +38,7 @@ class CategoriesController extends AppController {
 	
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('get_categories_and_latest_post');
+        $this->Auth->allow('get_categories_and_latest_post', 'view');
     }
     
 	public function isAuthorized($user) {

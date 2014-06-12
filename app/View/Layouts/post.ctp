@@ -54,11 +54,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 <body>
 	<div id="container" class="grid-container">
-		<div id="header" class="grid-50	push-25 grid-parent">
-				- Jack Macleod -
-			<div id="sub-footer" class ="grid-100 grid-parent">
-			  	Web Developer - Graphic Designer 
-			</div>
+		
 		</div>
 		<div id="content" class="grid-100 grid-parent">
 			

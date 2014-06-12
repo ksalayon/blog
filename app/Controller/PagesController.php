@@ -42,7 +42,7 @@ class PagesController extends AppController {
     public function beforeFilter() {
         $this->logdebug('Pagesontroller beforeFilter');
         parent::beforeFilter();
-        $this->Auth->allow('home' , 'contact', 'portfolio');
+        $this->Auth->allow('home' , 'contact', 'portfolio', 'manual');
     }
     
 /**
@@ -87,6 +87,8 @@ class PagesController extends AppController {
             }
             $this->Session->setFlash(__('Unable to save your contact.'));
         }
+
+
          
     }
 
@@ -95,6 +97,11 @@ class PagesController extends AppController {
         
     }
     
+	public function manual()
+	{
+		$this->layout = 'manual';
+	}
+	
     function __test()
     {
         echo 'Invoke private function';

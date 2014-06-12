@@ -8,7 +8,10 @@ App::uses('AppController', 'Controller');
  */
 class TagsController extends AppController {
 
-
+public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('view');
+    }
 var $helpers = array('Html', 'Form');
 
 public $components = array('Paginator');

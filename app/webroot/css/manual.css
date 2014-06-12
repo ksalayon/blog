@@ -1,0 +1,58 @@
+h3
+{
+	padding: 15px;
+	font-size:18px;
+}
+h2
+{
+	color:	#3399CC;
+	font-size:	25px;
+	background-color: #C0C0C0;
+	text-decoration: underline;
+}
+h1
+{
+	padding: 20px;
+	text-align: center;
+	text-decoration: underline;
+	font-size: 25px;
+}
+p
+{
+	font-size: 13px;	
+	font-weight: bold;
+}
+#body
+{
+	background-color: #C0C0C0;
+}
+#content
+{
+	background-color: #C0C0C0;
+}
+.nav li
+{
+	padding: 10px;
+}
+li a
+{
+	font-family: times;
+	color: #3399CC;
+	font-size: 20px;
+}
+.nav li a
+{
+	color: #003366;
+	font-size: 15px;
+}
+.nav li a:hover
+{
+	color: #F8F8F8;
+}
+top
+{
+	text-align: center;
+	font-family: Times, sans-serif;
+	color: black;
+	font-size: 40px;
+}

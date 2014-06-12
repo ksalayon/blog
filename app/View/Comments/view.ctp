@@ -13,7 +13,7 @@
 		</dd>
 		<dt><?php echo __('Body'); ?></dt>
 		<dd>
-			<?php echo h($comment['Comment']['body']); ?>
+			<?php echo h($comment['Comment']['body']); ?>	
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>

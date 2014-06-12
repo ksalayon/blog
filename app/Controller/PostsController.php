@@ -59,8 +59,9 @@ class PostsController extends AppController {
 			else
 			{
 				unset($this->request->data['Comment']);
-				return $this->redirect(array('action' => 'view/' . $id));
-				$this->Session->setFlash(__('Comment posted successfully.'));
+				$this->Session->setFlash('Your comment has been added!', 'general_success');
+				$this->redirect(array('action' => 'view/' . $id));
+				
 			}
 		}
 		
