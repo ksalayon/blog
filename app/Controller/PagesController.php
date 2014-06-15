@@ -40,7 +40,6 @@ class PagesController extends AppController {
     public $name = 'Pages';
     
     public function beforeFilter() {
-        $this->logdebug('Pagesontroller beforeFilter');
         parent::beforeFilter();
         $this->Auth->allow('home' , 'contact', 'portfolio', 'manual');
     }
@@ -100,6 +99,15 @@ class PagesController extends AppController {
 	public function manual()
 	{
 		$this->layout = 'manual';
+        $this->loadModel('MainTopic');
+        $this->loadModel('SubTopic');
+        
+        $mainTopicModel = new MainTopic();
+        $mainTopics = $mainTopicModel->find('all');
+        $this->logdebug($mainTopics, 'MainTopics');
+        
+        $this->set('mainTopics', $mainTopics);
+        
 	}
 	
     function __test()

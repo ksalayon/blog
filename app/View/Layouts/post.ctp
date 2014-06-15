@@ -60,7 +60,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			
 
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		
@@ -75,14 +74,42 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				</div>
 			</div>
 	</div>
-	
-	
+
 	<?php
 		echo $this->Html->script(array('jquery-2.0.3.min'));
-		//echo $this->Html->script(array('tinymce/tinymce.min.js'));
+        echo $this->Html->script(array('ckeditor/ckeditor', 'ckeditor/adapters/jquery'));
 	?>
 	
 	
+    <script>
+    $(document).ready(function(){
+        CKEDITOR.replace( 'MainTopicBody', {
+            // Load the simplebox plugin.
+            //extraPlugins: 'simplebox',
+        
+        
+            // The following options are set to make the sample more clear for demonstration purposes.
+        
+            // Set height to make more content visible.
+            height: 500,
+            // Rearrange toolbar groups and remove unnecessary plugins.
+            toolbarGroups: [
+                { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+                { name: 'links' },
+                { name: 'insert' },
+                { name: 'document',    groups: [ 'mode' ] },
+                '/',
+                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                { name: 'paragraph',   groups: [ 'list', 'indent' ] },
+                { name: 'styles' },
+                { name: 'about' }
+            ]
+        } );
+    });
+    
+       
+       
+    </script>
 	
 	<?php echo $this->element('sql_dump'); ?>
 

@@ -15,6 +15,15 @@ class MainTopicsController extends AppController {
  */
 	public $components = array('Paginator');
 
+    public $helpers = array('Html', 'Form');
+    
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow();
+        $this->layout = 'post';
+    }
+    
 /**
  * index method
  *
